@@ -1,0 +1,35 @@
+You did such a great job helping Julia with her last coding contest challenge that she wants you to work on this one, too!
+The total score of a hacker is the sum of their maximum scores for all of the challenges. Write a query to print the hacker_id, name, 
+and total score of the hackers ordered by the descending score. If more than one hacker achieved the same total score, then sort the 
+result by ascending hacker_id. Exclude all hackers with a total score of 0 from your result.
+
+Input Format
+The following tables contain contest data:
+Hackers: The hacker_id is the id of the hacker, and name is the name of the hacker.
++---------+-------+
+|Column   |Type   |
++---------+-------+
+|hacker_id|Integer|	
+|name     |String |
++---------+-------+
+
+Submissions: The submission_id is the id of the submission, hacker_id is the id of the hacker who made the submission, challenge_id is 
+the id of the challenge for which the submission belongs to, and score is the score of the submission. 
++--------------+-------+
+|Column        |Type   |
++--------------+-------+
+|submmission_id|Integer|	
+|hacker_id     |Integer|
+|challenge_id  |Integer|
+|score	       |Integer|
++--------------+-------+
+
+
+Select h.hacker_id,h.name,SUM(s2s)
+From Hackers h inner join (Select hacker_id,MAX(score) as s2s 
+                           From Submissions 
+                           Group by hacker_id,challenge_id) s2 
+                           on h.hacker_id=s2.hacker_id
+Group by h.hacker_id,h.name
+Having SUM(s2s)>0
+Order by SUM(s2s) desc,h.hacker_id

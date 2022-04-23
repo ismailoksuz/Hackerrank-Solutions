@@ -1,0 +1,41 @@
+Julia asked her students to create some coding challenges. Write a query to print the hacker_id, name, and the total number of challenges 
+created by each student. Sort your results by the total number of challenges in descending order. If more than one student created the same 
+number of challenges, then sort the result by hacker_id. If more than one student created the same number of challenges and the count is less 
+than the maximum number of challenges created, then exclude those students from the result.
+
+Input Format
+The following tables contain challenge data:
+Hackers: The hacker_id is the id of the hacker, and name is the name of the hacker.
++---------+-------+
+|Column   |Type   |
++---------+-------+
+|hacker_id|Integer|	
+|name     |String |
++---------+-------+
+
+Challenges: The challenge_id is the id of the challenge, the hacker_id is the id of the hacker who created the challenge, 
+and difficulty_level is the level of difficulty of the challenge.
++------------+-------+
+|Column      |Type   |
++------------+-------+
+|challange_id|Integer|	
+|hacker_id   |Integer|
++------------+-------+
+
+
+
+Select h.hacker_id, h.name, Count(c.challenge_id) cnt
+From Hackers H inner join Challenges c on h.hacker_id = c.hacker_id
+Group by h.hacker_id, h.name
+Having count(c.challenge_id) = (Select TOP 1 count(c2.challenge_id) cnt2
+                                From challenges c2
+                                Group by c2.hacker_id
+                                Order by cnt2 desc)
+or Count(c.challenge_id) in(Select Distinct cnt3 
+                            From (Select h3.hacker_id, h3.name, count(c3.challenge_id) as cnt3
+                                  From Hackers h3 inner join Challenges c3 on h3.hacker_id = c3.hacker_id
+                                  Group by h3.hacker_id, h3.name
+) iso
+    Group by cnt3
+Having Count(cnt3) =1)
+Order by cnt desc, h.hacker_id

@@ -1,0 +1,14 @@
+Write a query that prints a list of employee names (i.e.: the name attribute) from the Employee table in alphabetical order.
++------------+--------+
+|Column	     | Type   |
++------------+--------+
+|employee_id |Integer |	
+|name	     |String  |
+|months	     |Integer |
+|salary      |Integer |
++------------+--------+
+
+
+Select Name
+From Employee
+Order by Name
