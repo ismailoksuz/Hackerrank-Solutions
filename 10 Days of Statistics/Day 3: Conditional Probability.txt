@@ -1,0 +1,17 @@
+Objective
+In this challenge, we get started with conditional probability. Check out the Tutorial tab for learning materials!
+
+Task
+Suppose a family has 2 children, one of which is a boy. What is the probability that both children are boys?
+
+Solution
+(1/2) is the probability for gender whether girl or boy
+As they have 2 children, (1/2)*(1/2)=1/4 probabilities exist
+All probabilities are:
+BB
+BG
+GB
+GG
+Question gives us that one of the children are boy, so we ignore the GG probability
+We want the find the probability when both children are boys which is BB
+(BB)/(BB, BG, GB) => 1/3
