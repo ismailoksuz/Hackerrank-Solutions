@@ -1,0 +1,84 @@
+def end_arr_delete(arr)
+    # delete the element from the end of the array and return the deleted element
+    arr.pop
+end
+
+def start_arr_delete(arr)
+    # delete the element at the beginning of the array and return the deleted element
+    arr.shift
+end
+
+def delete_at_arr(arr, index)
+    # delete the element at the position #index
+    arr.delete_at(index)
+end
+
+def delete_all(arr, val)
+    # delete all the elements of the array where element = val
+    arr.delete(val)
+end
+
+
+arr = [5, 4, 3, 2, "hello"]
+
+val = end_arr_delete(arr)
+
+unless not val.nil?
+    puts "You have to returned the deleted element"
+    exit(0)
+end
+
+unless "hello" == val
+    puts "You have deleted #{val} instead of hello from the array"
+    exit(0)
+else
+    puts "Correct! You have deleted the last element from the array"
+end
+
+arr = [5, 4, 3, 2]
+
+val = start_arr_delete(arr)
+
+unless not val.nil?
+    puts "You have to returned the deleted element"
+    exit(0)
+end
+
+unless 5 == val
+    puts "You have deleted #{val} instead of 5 from the array"
+    exit(0)
+else
+    puts "Correct! You have deleted the first element from the array"
+end
+
+arr = [3, 4, 5, 6, 1]
+
+val = delete_at_arr(arr, 3)
+
+unless not val.nil?
+    puts "You have to returned the deleted element"
+    exit(0)
+end
+
+unless 6 == val
+    puts "You have deleted #{val} instead of 6 from the array"
+    exit(0)
+else
+    puts "Correct! You have deleted the element at index #{3} from the array"
+end
+
+arr = [1, 2, 3, 4, 2, 2, 5]
+
+val = delete_all(arr, 2)
+
+unless not val.nil?
+    puts "You have to returned the deleted element"
+    exit(0)
+end
+
+unless 2 == val
+    puts "You have deleted all occurrences #{val} instead of 2 from the array"
+    exit(0)
+else
+    puts "Correct! You have deleted all occurrences of 2 from the array"
+end
