@@ -1,0 +1,27 @@
+Objective
+In this challenge, we practice calculating the probability of a compound event. We recommend you review today's Probability Tutorial before attempting this challenge.
+
+Task
+There are 3 urns labeled X, Y, and Z.
+Urn X contains 4 red balls and 3 black balls.
+Urn Y contains 5 red balls and 4 black balls.
+Urn Z contains 4 red balls and 4 black balls.
+One ball is drawn from each of the 3 urns. What is the probability that, of the 3 balls drawn, 2 are red and 1 is black?
+
+Solution
+R,R,B
+R,B,R
+B,R,R
+Are satisfies the condition.
+
+For (R,R,B):
+(4/7)*(5/9)*(4/8)=80/504
+
+For (R,B,R):
+(4/7)*(4/9)*(4/8)=64/504
+
+For (B,R,R):
+(3/7)*(5/9)*(4/8)=60/504
+
+Sum of these 3 probabilities gives us the result
+(80/504)+(64/504)+(60/504)=(204/504) = 17/42

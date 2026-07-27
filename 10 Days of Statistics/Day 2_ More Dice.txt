@@ -1,0 +1,16 @@
+Objective
+In this challenge, we practice calculating probability. We recommend you review the previous challenge's Tutorial before attempting this problem.
+
+Task
+In a single toss of 2 fair (evenly-weighted) six-sided dice, find the probability that the values rolled by each die will be different and the two dice have a sum of 6.
+
+Solution
+We have 36 different options which comes from 6*6.
+Dices' sum can be max 12 (6,6) min 2 (1,1)
+Satisfied conditions are:
+1-5
+2-4
+4-2
+1-5
+So 4 conditions satisfies the result.
+4/36 = 1/9

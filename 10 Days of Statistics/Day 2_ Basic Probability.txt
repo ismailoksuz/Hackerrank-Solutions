@@ -1,0 +1,12 @@
+Objective
+In this challenge, we practice calculating probability. Check out the Tutorial tab for a breakdown of probability fundamentals!
+
+Task
+In a single toss of  fair (evenly-weighted) six-sided dice, find the probability that their sum will be at most 9.
+
+Solution
+We have 36 different options which comes from 6*6.
+Dices' sum can be max 12 (6,6) min 2 (1,1)
+6-6, 6-5, 6-4, 5-6, 5-5, 4-6 are the probabilities that are higher than 9 in sum
+So in 36-6=30 outcomes, it provides the condition.
+30/36 = 5/6
